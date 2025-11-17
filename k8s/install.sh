@@ -12,3 +12,10 @@ kubectl apply --server-side -f https://github.com/envoyproxy/gateway/releases/do
 for file in *.yml *.yaml; do
   kubectl apply -f "$file"
 done
+
+
+# Install Prometheus and Graphana
+helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+helm repo update
+helm install prometheus prometheus-community/kube-prometheus-stack
