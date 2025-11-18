@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: myapi
-        image: myapi:latest
+        image: myapi:0.0.1-0
         imagePullPolicy: Never
         resources:
           requests:

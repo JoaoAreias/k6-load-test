@@ -1,0 +1,18 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: api-monitor
+  labels:
+    # This label is crucial! It tells the Prometheus Operator to pick this up.
+    # Based on your helm install command, the release name is "prometheus".
+    release: prometheus 
+spec:
+  selector:
+    matchLabels:
+      # This must match the labels in your k8s/api-service.yaml
+      app: myapy
+  endpoints:
+  - port: http # Ensure your Service names the port (e.g., 'http' or '8000')
+    path: /metrics
+    interval: 15s
+

@@ -14,7 +14,7 @@ for file in *.yml *.yaml; do
 done
 
 
-# Install Prometheus and Graphana
+# Install Prometheus and Grafana
 helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
 helm repo add stable https://kubernetes-charts.storage.googleapis.com/
 helm repo update
